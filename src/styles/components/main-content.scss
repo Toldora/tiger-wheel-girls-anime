@@ -227,65 +227,103 @@
 }
 
 .main__coin-1-decor {
-  --aspect-ratio: 0.884;
+  --aspect-ratio: 1.15;
 
   position: absolute;
-  z-index: var(--z-common-decor);
-  bottom: 7%;
   aspect-ratio: var(--aspect-ratio);
 
-  @include bg-image('/img/decor/coin');
+  @include bg-image('/img/decor/coin-1');
 
   @media (orientation: portrait) {
-    display: none;
+    z-index: var(--z-girl-decor);
+    top: 19%;
+    left: calc(50% - var(--wheel-size-portrait) / 2);
+    width: min(27vw, vh(15) * var(--aspect-ratio));
+    transform: translateX(10%);
   }
 
   @media (orientation: landscape) {
+    z-index: var(--z-common-decor);
+    top: 33%;
     left: calc(50% - var(--wheel-size-landscape));
-    width: min(16vw, vh(30) * var(--aspect-ratio));
-    transform: translateX(-80%);
+    width: min(8vw, vh(13) * var(--aspect-ratio));
+    transform: translateX(-50%) rotate(-20deg);
   }
 }
 
 .main__coin-2-decor {
-  --aspect-ratio: 0.884;
+  --aspect-ratio: 0.59;
 
   position: absolute;
-  z-index: var(--z-default);
-  bottom: 18%;
   aspect-ratio: var(--aspect-ratio);
-  filter: blur(to-rem(3));
 
-  @include bg-image('/img/decor/coin');
+  @include bg-image('/img/decor/coin-2');
 
   @media (orientation: portrait) {
-    display: none;
+    z-index: var(--z-girl-decor);
+    top: 26%;
+    left: calc(50% + var(--wheel-size-portrait) * 0.3);
+    width: min(10vw, vh(11) * var(--aspect-ratio));
+    transform: translateX(20%);
   }
 
   @media (orientation: landscape) {
-    left: calc(50% + var(--wheel-size-landscape));
-    width: min(13vw, vh(21) * var(--aspect-ratio));
-    transform: rotate(255deg);
+    z-index: var(--z-common-decor);
+    bottom: 24%;
+    left: calc(50% + var(--wheel-size-landscape) * 0.9);
+    width: min(4vw, vh(11) * var(--aspect-ratio));
+    transform: translateX(-50%);
   }
 }
 
-.main__slot-decor {
+.main__slot-decor-1 {
   --aspect-ratio: 1;
 
   position: absolute;
   z-index: var(--z-common-decor);
-  bottom: 24%;
   aspect-ratio: var(--aspect-ratio);
+  filter: blur(to-rem(3))
+    drop-shadow(0 to-rem(4) to-rem(24) rgba(123, 0, 0, 0.5));
 
-  @include bg-image('/img/decor/slot');
+  @include bg-image('/img/decor/slot-decor-1');
 
   @media (orientation: portrait) {
-    display: none;
+    bottom: 0%;
+    left: calc(50% - var(--wheel-size-portrait) * 0.4);
+    width: min(20vw, vh(22) * var(--aspect-ratio));
+    transform: translateX(-20%);
   }
 
   @media (orientation: landscape) {
+    bottom: 24%;
+    left: calc(50% - var(--wheel-size-landscape));
+    width: min(16vw, vh(24) * var(--aspect-ratio));
+    transform: translateX(-80%);
+  }
+}
+
+.main__slot-decor-2 {
+  --aspect-ratio: 1;
+
+  position: absolute;
+  aspect-ratio: var(--aspect-ratio);
+  filter: blur(to-rem(5));
+
+  @include bg-image('/img/decor/slot-decor-2');
+
+  @media (orientation: portrait) {
+    z-index: var(--z-girl-decor);
+    top: 2%;
+    left: 50%;
+    width: min(50vw, vh(30) * var(--aspect-ratio));
+    transform: translateX(20%);
+  }
+
+  @media (orientation: landscape) {
+    z-index: var(--z-default);
+    top: 30%;
     left: calc(50% + var(--wheel-size-landscape));
-    width: min(12vw, vh(20) * var(--aspect-ratio));
-    transform: translateX(-20%);
+    width: min(21vw, vh(36) * var(--aspect-ratio));
+    transform: translateX(-15%);
   }
 }
