@@ -134,11 +134,5 @@ a {
   background-position: center;
   overflow: hidden;
 
-  @media (orientation: portrait) {
-    @include bg-img-webp('/img/bg/ver', true);
-  }
-
-  @media (orientation: landscape) {
-    @include bg-img-webp('/img/bg/hor', true);
-  }
+  @include bg-img-webp('/img/bg/hor', true);
 }
