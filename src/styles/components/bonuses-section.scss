@@ -1,0 +1,77 @@
+%hidden-block {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--hover-transition);
+}
+
+.bonuses-section {
+  position: relative;
+  z-index: var(--z-bonuses-section);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  @media (orientation: portrait) {
+    margin-top: vh(4);
+
+    @include respond-above(small) {
+      margin-bottom: calc(vh(7) * -1);
+    }
+  }
+
+  @media (orientation: landscape) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49.5%, -65%);
+  }
+}
+
+.bonuses-section__bonus-img {
+  --size: #{to-rem(80)};
+  flex-shrink: 0;
+
+  @media (orientation: portrait) {
+    @include respond-above(small) {
+      --size: #{vh(15)};
+    }
+
+    &:not(:last-child) {
+      margin-right: calc(var(--wheel-size-portrait) * 0.25);
+
+      @include respond-above(small) {
+        margin-right: calc(var(--wheel-size-portrait) * 0.4);
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    --size: #{vh(23)};
+
+    &:not(:last-child) {
+      margin-right: calc(var(--wheel-size-landscape) * 0.94);
+    }
+  }
+
+  img {
+    width: var(--size);
+    height: var(--size);
+  }
+
+  @extend %hidden-block;
+
+  &--first {
+    .bonuses-section--visible-first-bonus & {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &--second {
+    .bonuses-section--visible-second-bonus & {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
