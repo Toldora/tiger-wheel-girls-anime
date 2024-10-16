@@ -1,5 +1,9 @@
 import handlebars from 'handlebars';
-import { SignUpForm, compileSignUpFormMarkup, setToLS } from 'mayanbet-sdk';
+import {
+  // SignUpForm,
+  compileSignUpFormMarkup,
+  // setToLS
+} from 'mayanbet-sdk';
 import signUpBonusesTemplate from '@/partials/sign-up-bonuses.hbs?raw';
 import { openModal } from '@/js/modal';
 import { globalState } from '@/js/global-state';
@@ -22,12 +26,12 @@ export const openSignUpModal = ({ isBlocked } = {}) => {
   modalContentRef.innerHTML = '';
   modalContentRef.insertAdjacentHTML('beforeend', markup);
 
-  new SignUpForm({
-    formRef: document.forms.signUp,
-    submitCallback: async () => {
-      setToLS('isAlreadyRegistered', true);
-    },
-  });
+  // new SignUpForm({
+  //   formRef: document.forms.signUp,
+  //   submitCallback: async () => {
+  //     setToLS('isAlreadyRegistered', true);
+  //   },
+  // });
 
   openModal({ isBlocked });
 };
